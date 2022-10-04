@@ -94,18 +94,6 @@ class Gradebook extends React.Component {
     // when user has entered a new grade, update the state
     //  id    - index of row of grade change
     //  props - contains the new grade
-    handleEditCellChange = ({ id, field, props }) => {
-       console.log("edit cell change id:"+id+" field:"+field+" value:"+props.value);
-       const newgrades = this.state.grades.map(r => {
-         if (r.id === id){
-           return {...r, [field]:props.value};
-         } else {
-           return {...r};
-         }
-       });
-       this.setState({grades: newgrades});
-     };
-
     handleCellEditCommit = (e) => {
       console.log("handleCellEditCommit "+JSON.stringify(e));
       const newgrades= this.state.grades.map(r => {
@@ -126,8 +114,8 @@ class Gradebook extends React.Component {
         { field: 'grade', headerName: 'Grade', width: 150 , editable:true}
         ];
         
-        const assignment = this.props.location.assignment;
-      
+		const assignment = this.props.location.assignment;
+		    
         return(
             <div className="App">
               <Grid container>
