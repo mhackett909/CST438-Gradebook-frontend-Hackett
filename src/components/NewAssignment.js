@@ -68,9 +68,13 @@ class NewAssignment extends React.Component {
 	// when user has entered a new assignment due date, update the state
     handleDateChange = (e) => {
       console.log("handleDateChange "+e.target.value);
-	  let longformat = new Date(e.target.value);
-	  let newdate = longformat.getDay()+"-"+longformat.getMonth()+"-"+longformat.getFullYear();
-      this.setState({dueDate: newdate});
+	  //let longformat = new Date(e.target.value).toLocaleString('en-US', { timeZone: 'America/Los_Angeles', });
+	  //console.log("longformat "+longformat)
+	  //let newdate = longformat.getDay()+"-"+longformat.getMonth()+"-"+longformat.getFullYear();
+	  //console.log("newdate "+newdate)
+	  //console.log("date "+longformat)
+      //this.setState({dueDate: longformat.getTime()});
+	  this.setState({dueDate: e.target.value});
     };
 	
 	 // when submit button pressed, send new assignment to back end 
